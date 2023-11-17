@@ -1,0 +1,233 @@
+1. Write a program to check whether a given number is divisible by 3 and divisible by 2.
+   #include <stdio.h>
+
+int main() {
+    int number;
+    printf("Enter a number: ");
+    scanf("%d", &number);
+
+    if (number % 3 == 0 && number % 2 == 0) {
+        printf("%d is divisible by both 3 and 2.\n", number);
+    } else {
+        printf("%d is not divisible by both 3 and 2.\n", number);
+    }
+
+    return 0;
+ }
+
+2. Write a program to check whether a given number is divisible by 7 or divisible by 3.
+
+   #include <stdio.h>
+
+int main() {
+    int number;
+    printf("Enter a number: ");
+    scanf("%d", &number);
+
+    if (number % 7 == 0 || number % 3 == 0) {
+        printf("%d is divisible by 7 or 3.\n", number);
+    } else {
+        printf("%d is not divisible by 7 or 3.\n", number);
+    }
+
+    return 0;
+ }
+
+3. Write a program to check whether a given number is positive, negative or zero. 
+
+ #include <stdio.h>
+
+int main() {
+    int number;
+    printf("Enter a number: ");
+    scanf("%d", &number);
+
+    if (number > 0) {
+        printf("%d is positive.\n", number);
+    } else if (number < 0) {
+        printf("%d is negative.\n", number);
+    } else {
+        printf("The number is zero.\n");
+    }
+
+    return 0;
+ }
+
+
+4. Write a program to check whether a given year is a leap year or not.
+
+   #include <stdio.h>
+
+int main() {
+    int year;
+    printf("Enter a year: ");
+    scanf("%d", &year);
+
+    if ((year % 4 == 0 && year % 100 != 0) || (year % 400 == 0)) {
+        printf("%d is a leap year.\n", year);
+    } else {
+        printf("%d is not a leap year.\n", year);
+    }
+
+    return 0;
+ }
+
+
+5. Write a program to find greater among three numbers. If two or three numbers are
+identical and greatest among all then print it only once.
+   
+  #include <stdio.h>
+
+int main() {
+    int num1, num2, num3;
+    printf("Enter three numbers: ");
+    scanf("%d %d %d", &num1, &num2, &num3);
+
+    if (num1 == num2 && num2 == num3) {
+        printf("All three numbers are identical and greatest: %d\n", num1);
+    } else {
+        int max = (num1 > num2) ? ((num1 > num3) ? num1 : num3) : ((num2 > num3) ? num2 : num3);
+        printf("The greatest number among three is: %d\n", max);
+    }
+
+    return 0;
+}
+
+
+6. Write a program to check whether a given character is an alphabet (uppercase), an
+alphabet (lower case), a digit or a special character.
+
+ #include <stdio.h>
+
+int main() {
+    char ch;
+    printf("Enter a character: ");
+    scanf(" %c", &ch);
+
+    if ((ch >= 'A' && ch <= 'Z') || (ch >= 'a' && ch <= 'z')) {
+        if (ch >= 'A' && ch <= 'Z') {
+            printf("%c is an uppercase alphabet.\n", ch);
+        } else {
+            printf("%c is a lowercase alphabet.\n", ch);
+        }
+    } else if (ch >= '0' && ch <= '9') {
+        printf("%c is a digit.\n", ch);
+    } else {
+        printf("%c is a special character.\n", ch);
+    }
+
+    return 0;
+}
+
+ 
+7. Write a program which takes the length of the sides of a triangle as an input. Display
+whether the triangle is valid or not.
+
+  #include <stdio.h>
+
+int main() {
+    int side1, side2, side3;
+    printf("Enter the lengths of three sides of a triangle: ");
+    scanf("%d %d %d", &side1, &side2, &side3);
+
+    if (side1 + side2 > side3 && side1 + side3 > side2 && side2 + side3 > side1) {
+        printf("The triangle is valid.\n");
+    } else {
+        printf("The triangle is not valid.\n");
+    }
+
+    return 0;
+}
+
+
+8. Write a program which takes the month number as an input and display number of
+days in that month. 
+
+  #include <stdio.h>
+
+int main() {
+    int month;
+    printf("Enter the month number (1-12): ");
+    scanf("%d", &month);
+
+    switch (month) {
+        case 1: case 3: case 5: case 7: case 8: case 10: case 12:
+            printf("31 days in the month.\n");
+            break;
+        case 4: case 6: case 9: case 11:
+            printf("30 days in the month.\n");
+            break;
+        case 2:
+            printf("28 or 29 days in the month.\n");
+            break;
+        default:
+            printf("Invalid month number.\n");
+    }
+
+    return 0;
+}
+
+
+9. Write a program to find the nature of roots of a quadratic equation.
+    
+   #include <stdio.h>
+#include <math.h>
+
+int main() {
+    float a, b, c;
+    printf("Enter coefficients a, b, and c: ");
+    scanf("%f %f %f", &a, &b, &c);
+
+    float discriminant = b * b - 4 * a * c;
+
+    if (discriminant > 0) {
+        printf("Roots are real and different.\n");
+    } else if (discriminant == 0) {
+        printf("Roots are real and identical.\n");
+    } else {
+        printf("Roots are complex and different.\n");
+    }
+
+    return 0;
+}
+
+
+10.Write a C program to input marks of five subjects Physics, Chemistry, Biology,
+Mathematics and Computer. Calculate percentage and grade according to following:
+Percentage >= 90% : Grade A
+Percentage >= 80% : Grade B
+Percentage >= 70% : Grade C
+Percentage >= 60% : Grade D
+Percentage >= 40% : Grade E
+Percentage < 40% : Grade F
+   
+
+  #include <stdio.h>
+
+int main() {
+    float physics, chemistry, biology, mathematics, computer;
+    printf("Enter marks in Physics, Chemistry, Biology, Mathematics, and Computer: ");
+    scanf("%f %f %f %f %f", &physics, &chemistry, &biology, &mathematics, &computer);
+
+    float totalMarks = physics + chemistry + biology + mathematics + computer;
+    float percentage = (totalMarks / 500) * 100;
+
+    printf("Percentage: %.2f%%\n", percentage);
+
+    if (percentage >= 90) {
+        printf("Grade: A\n");
+    } else if (percentage >= 80) {
+        printf("Grade: B\n");
+    } else if (percentage >= 70) {
+        printf("Grade: C\n");
+    } else if (percentage >= 60) {
+        printf("Grade: D\n");
+    } else if (percentage >= 40) {
+        printf("Grade: E\n");
+    } else {
+        printf("Grade: F\n");
+    }
+
+    return 0;
+}
+
